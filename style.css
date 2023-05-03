@@ -1,0 +1,177 @@
+/* Default styles */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #666;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#hero {
+  
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 200px 0;
+  color: #0c0c00;
+  font-weight: bold;
+}
+
+#hero:hover {
+  background-color: #f1089007;
+  color: #ffffff;
+}
+
+#hero h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+#hero p {
+  font-size: 1.5rem;
+  margin: 20px 0 50px 0;
+}
+
+.cta {
+  background-color: #e715dd8a;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cta:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+#services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.service {
+  width: 30%;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: #eb11e01e;
+}
+
+.service h3 {
+  margin-top: 0;
+}
+
+.service p {
+  margin-bottom: 20px;
+}
+
+.service a {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.service a:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+#contact {
+  margin: 50px 0;
+}
+
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1020px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  #services {
+    flex-direction: column;
+  }
+
+  .service {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #hero {
+    padding: 200px 0;
+  }
+
+  #hero h1 {
+    font-size: 3rem;
+  }
+
+  #hero p {
+    font-size: 1.2rem;
+    margin: 20px 0 30px 0;
+  }
+
+  .service {
+    padding: 10px;
+  }
+}
+
+body {
+  background-image: url('/images/workplace-ge8c5045b0_1920.jpg');
+  background-size: cover;
+}
