@@ -87,20 +87,6 @@ nav ul li a:hover {
   padding: 1rem; /* Add padding to increase readability */
 }
 
-#hero .cta {
-  background-color: #fff;
-  color: #333;
-  padding: 1rem 2rem;
-  border-radius: 3px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-
-#hero .cta:hover {
-  background-color: #333;
-  color: #fff;
-}
-
 /* Services Section */
 
 #services {
@@ -173,28 +159,28 @@ nav ul li a:hover {
   text-align: center;
 }
 
-  #contact h2 {
+#contact h2 {
   font-size: 4rem;
   margin-bottom: 2rem;
   color: #fff;
   text-shadow: 2px 2px #333;
-  }
-  
-  form {
+}
+
+form {
   max-width: 600px;
   margin: 0 auto;
-  }
-  
-  form input,
-  form textarea {
+}
+
+form input,
+form textarea {
   width: 100%;
   padding: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 3px;
   border: none;
-  }
-  
-  form input[type="submit"] {
+}
+
+form input[type="submit"] {
   background-color: #333;
   color: #fff;
   padding: 1rem 2rem;
@@ -204,24 +190,75 @@ nav ul li a:hover {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  }
-  
-  form input[type="submit"]:hover {
+}
+
+form input[type="submit"]:hover {
   background-color: #fff;
   color: #333;
-  }
-  
-  /* Footer */
-  
-  footer {
-  background-color:3#fff;
+}
+
+/* Footer */
+
+footer {
+  background-color: #fff;
   color: #333;
   text-align: center;
   padding: 1rem;
-  }
-  
-  footer p {
+}
+
+footer p {
   font-size: 1.2rem;
   margin-bottom: 0;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  
+  /* Header */
+  nav ul li {
+    margin-right: 0.5rem;
   }
   
+  /* Hero Section */
+  #hero h1 {
+    font-size: 3.5rem;
+  }
+  
+  #hero p {
+    font-size: 1.2rem;
+  }
+  
+  /* Services Section */
+  #services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .service h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service a {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Contact Section */
+  #contact h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  form input[type="submit"] {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
