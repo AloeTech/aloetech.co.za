@@ -72,10 +72,12 @@ nav ul li a:hover {
 }
 
 #hero h1 {
+  font-family: Arial, sans-serif;
   font-size: 5rem;
   margin-bottom: 1rem;
   color: white;
   text-shadow: 2px 2px #333;
+  transition: transform 0.3s ease-in-out;
 }
 
 #hero p {
@@ -85,6 +87,12 @@ nav ul li a:hover {
   text-shadow: 1px 1px #333;
   background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
   padding: 1rem; /* Add padding to increase readability */
+  background-color: transparent; /* Set the initial background color to transparent */
+  transition: background-color 0.3s ease-in-out; /* Add a transition effect for smooth animation */
+}
+
+#hero p:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Apply the background color when hovering */
 }
 
 /* Services Section */
@@ -92,6 +100,7 @@ nav ul li a:hover {
 #services {
   padding: 4rem 2rem;
   background-color: #f7f7f7;
+  
 }
 
 #services h2 {
@@ -139,7 +148,6 @@ nav ul li a:hover {
 .service a:focus {
   color: #fff;
 }
-
 
 
 
@@ -262,3 +270,4 @@ footer p {
     font-size: 1rem;
   }
 }
+
