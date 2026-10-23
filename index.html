@@ -1,108 +1,1070 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Aloe Tech</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header class="parallax">
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aloe Tech — Modern web development, custom apps, automation systems & digital solutions for South African businesses. Websites, mobile apps, payment trackers, nanny placement systems & more.">
+  <title>Aloe Tech | Digital Solutions & Custom Software 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f0d;
+      --bg-elevated: #111916;
+      --bg-card: rgba(18, 28, 24, 0.7);
+      --surface: #16201c;
+      --border: rgba(74, 222, 128, 0.12);
+      --border-strong: rgba(74, 222, 128, 0.25);
+      --text: #e8f5e9;
+      --text-muted: #8fa89a;
+      --accent: #4ade80;
+      --accent-dim: #22c55e;
+      --accent-glow: rgba(74, 222, 128, 0.35);
+      --gradient: linear-gradient(135deg, #4ade80 0%, #14b8a6 50%, #06b6d4 100%);
+      --gradient-soft: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(20,184,166,0.1));
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-      <section id="hero">
-          <h1>Aloe Tech</h1>
-          <div class="content">
-            <div id="search-container">
-              <script>
-                (function() {
-                  var cx = '6753403d2e3d24025'; 
-                  var gcse = document.createElement('script');
-                  gcse.type = 'text/javascript';
-                  gcse.async = true;
-                  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                  var s = document.getElementsByTagName('script')[0];
-                  s.parentNode.insertBefore(gcse, s);
-                })();
-              </script>
-              <gcse:search></gcse:search>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(74,222,128,0.12), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(6,182,212,0.08), transparent),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(20,184,166,0.06), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: min(1140px, 92%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      transition: background var(--transition), backdrop-filter var(--transition), border var(--transition);
+    }
+
+    nav.scrolled {
+      background: rgba(10, 15, 13, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(74, 222, 128, 0.08);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: #0a0f0d;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--accent-glow);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(74, 222, 128, 0.08);
+      border-color: var(--accent);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.25rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 0 4rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient-soft);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 .gradient {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Hero visual card */
+    .hero-visual {
+      position: relative;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual .glass-card {
+      transform: rotate(2deg);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-visual:hover .glass-card {
+      transform: rotate(0deg);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 560px;
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--gradient-soft);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card .price {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .service-card .btn {
+      align-self: flex-start;
+      padding: 0.6rem 1.15rem;
+      font-size: 0.88rem;
+    }
+
+    /* PORTFOLIO / SYSTEMS */
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .system-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .system-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+    }
+
+    .system-card .thumb {
+      height: 140px;
+      background: var(--gradient-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .system-card .body {
+      padding: 1.35rem;
+    }
+
+    .system-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .system-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .system-card a.live {
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .system-card a.live:hover {
+      text-decoration: underline;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .why-item {
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .why-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .why-item p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--gradient-soft);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(74,222,128,0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .cta-banner p {
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 1.75rem;
+      position: relative;
+    }
+
+    .cta-banner .btn {
+      position: relative;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-item .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--gradient-soft);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-item p, .contact-item a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    .whatsapp-card {
+      background: linear-gradient(145deg, rgba(37,211,102,0.12), rgba(37,211,102,0.04));
+      border: 1px solid rgba(37,211,102,0.3);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .whatsapp-card .wa-icon {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .whatsapp-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .whatsapp-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .whatsapp-card .phone {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #25D366;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-visual {
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 15, 13, 0.97);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        gap: 0.25rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.75rem 1rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 6rem;
+      }
+
+      .hero-stats {
+        gap: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Aloe <span>Tech</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#systems">Systems We Build</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27d%20like%20to%20discuss%20a%20project" class="btn btn-whatsapp nav-cta" target="_blank" rel="noopener">
+        WhatsApp Us
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">Digital solutions · South Africa · 2026</div>
+        <h1>
+          Websites, apps &amp; automation that <span class="gradient">actually work</span> for your business
+        </h1>
+        <p class="hero-lead">
+          Aloe Tech builds modern websites, custom web &amp; mobile apps, payment trackers, placement systems and smart automation — tailored to real South African businesses.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27d%20like%20a%20quote%20for%20a%20project" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            Get a Quote on WhatsApp
+          </a>
+          <a href="#systems" class="btn btn-ghost">See what we’ve built</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">Live systems</span>
+            <span class="stat-label">SA Easy · Nanny Placements · more</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">Full stack</span>
+            <span class="stat-label">Web · Mobile · Automation</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-icon">⚡</div>
+            <div>
+              <div class="card-title">What we deliver</div>
+              <div class="card-sub">End-to-end digital products</div>
             </div>
-          <p>Looking for reliable and innovative tech solutions to take your business to the next level? Look no further than Aloe Tech! Our expert 
-            team specializes in providing top-notch technology services and solutions tailored to your unique business needs. 
-            From fast and affordable laptop screen repairs starting from <strong>R799</strong> to hassle-free company registration from <strong>R349</strong>, 
-            we've got you covered.
-            
-            <P>Plus, our website design and development service starting from R1499 can help you attract and 
-              engage customers, showcase your products and services, and increase your brand awareness. At Aloe Tech, we're committed 
-              to delivering exceptional customer service, attention to detail, and high-quality results. 
-            
-              <P> Don't let technology hold you 
-              back - let us help you reach your business goals today! Contact us for a quote and let's get started...</p>
+          </div>
+          <ul class="feature-list">
+            <li>Custom websites &amp; web apps</li>
+            <li>Mobile apps (Android / iOS ready)</li>
+            <li>Payment &amp; loan tracking systems</li>
+            <li>Nanny / staff placement platforms</li>
+            <li>Business automation &amp; dashboards</li>
+            <li>Company registration &amp; support services</li>
+          </ul>
         </div>
-      </section>
-      
-    </header>
-    <main>
-      <section id="services">
-        <h2>Our Services</h2>
-        <div class="service">
-          <h3>Laptop Screen Repairs</h3>
-          <p>Are you in need of tech solutions that are reliable and innovative? Look no further than Aloe Tech! Our company specializes in providing top-notch technology services and solutions to help your business thrive in the digital age. Whether you need a website designed, a laptop screen repaired, or any other tech-related services, our expert team has got you covered. We pride ourselves on our exceptional customer service, attention to detail, and commitment to delivering high-quality results.
-            <p> At Aloe Tech, we believe that technology should be easy, efficient, and accessible to everyone. That's why we offer our services at competitive prices without compromising on quality. Don't let technology hold you back - let Aloe Tech help you reach your business goals today! Contact us to learn more about our services, including our fast and affordable laptop screen repair services starting from as little as <strong>R799</strong>.</p>
-          <a href="#contact">Get a Quote</a>
-        </div>
-        <div class="service">
-          <h3>Company Registration</h3>
-          <p>Our experts can help you register your company quickly and hassle-free from as little as <strong>R349</strong>.</p>
+      </div>
+    </div>
+  </header>
 
-          <p>A business plan is a written document that outlines the goals, strategies, and tactics of a business. 
-            It serves as a roadmap for entrepreneurs and business owners to guide their decision-making and ensure that 
-            their company is on the right track. A well-crafted business plan typically includes information on the 
-            company's mission and vision, target market, products or services, marketing and sales strategies, 
-            financial projections, and management structure. 
-            
-          <p>It can be used for a variety of purposes, such as 
-            attracting investors, securing loans, or simply as a blueprint for the business owner to follow as 
-            they grow and expand their company. A good business plan should be clear, concise, and comprehensive, 
-            and should reflect a deep understanding of the industry, competition, and market trends.
-          
-            We offer a business plan package that includes an executive summary, business description, 
-            SWOT analysis, operation plan, organization structure, and industry analysis from as little as <strong>R499</strong>.
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <span class="section-label">What we offer</span>
+      <h2 class="section-title">Services built for growth</h2>
+      <p class="section-desc">
+        From a sharp website to full custom platforms — we design, build and support the digital tools your business needs.
+      </p>
 
-          <p> CIPC B-BBEE Certificates </p>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Website Design &amp; Development</h3>
+          <p>Modern, fast, mobile-first websites that convert visitors into customers. SEO-ready, clean design, easy to update.</p>
+          <div class="price">From R1 499</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20Website%20Development" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </article>
 
-          <a href="#contact">Get Started</a>
+        <article class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Custom Web &amp; Mobile Apps</h3>
+          <p>Purpose-built applications for your workflows — customer portals, booking systems, job platforms, internal tools and more.</p>
+          <div class="price">Custom quote</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20a%20Custom%20App" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Automation &amp; Integrations</h3>
+          <p>Connect WhatsApp, payments, CRMs and spreadsheets. Automate reminders, reports and repetitive tasks so your team focuses on growth.</p>
+          <div class="price">Custom quote</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20Automation" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">💳</div>
+          <h3>Cash Loan &amp; Payment Trackers</h3>
+          <p>Quick cash-loan management systems and payment trackers (like the Luvhengo payment tracker) — track repayments, clients and cashflow in one place.</p>
+          <div class="price">Custom quote</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20a%20Payment%20%2F%20Loan%20Tracker" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">👩‍👧</div>
+          <h3>Nanny &amp; Placement Systems</h3>
+          <p>Full platforms for nanny and domestic staff placement — candidate profiles, matching, applications and admin dashboards.</p>
+          <div class="price">Custom quote</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20a%20Nanny%20Placement%20System" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Company Registration &amp; Business Support</h3>
+          <p>Hassle-free company registration from R349. Business plans, CIPC &amp; B-BBEE certificates, and related support.</p>
+          <div class="price">From R349</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20Company%20Registration" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEMS / PORTFOLIO -->
+  <section id="systems">
+    <div class="container">
+      <span class="section-label">Real products</span>
+      <h2 class="section-title">Systems we’ve built</h2>
+      <p class="section-desc">
+        Live platforms and tools running for real users across South Africa — from job platforms to placement systems.
+      </p>
+
+      <div class="systems-grid">
+        <article class="system-card">
+          <div class="thumb">💼</div>
+          <div class="body">
+            <h3>SA Easy</h3>
+            <p>Job platform that connects South African job seekers with opportunities and rewards users for searching. Web + mobile app.</p>
+            <a href="https://www.saeasy.co.za" class="live" target="_blank" rel="noopener">www.saeasy.co.za →</a>
+          </div>
+        </article>
+
+        <article class="system-card">
+          <div class="thumb">🏡</div>
+          <div class="body">
+            <h3>Nanny Placements South Africa</h3>
+            <p>Placement system for nannies and domestic staff — registration, matching and management tools for agencies and families.</p>
+            <a href="https://www.nannyplacementssouthafrica.co.za" class="live" target="_blank" rel="noopener">www.nannyplacementssouthafrica.co.za →</a>
+          </div>
+        </article>
+
+        <article class="system-card">
+          <div class="thumb">📊</div>
+          <div class="body">
+            <h3>Luvhengo Payment Tracker</h3>
+            <p>Custom payment and loan tracking system for managing clients, instalments and cashflow with clear dashboards and alerts.</p>
+            <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20tell%20me%20more%20about%20the%20Payment%20Tracker%20system" class="live" target="_blank" rel="noopener">Ask about this system →</a>
+          </div>
+        </article>
+
+        <article class="system-card">
+          <div class="thumb">💰</div>
+          <div class="body">
+            <h3>Quick Cash-Loan Systems</h3>
+            <p>Loan management tools for micro-lenders and agents — applications, approvals, repayment schedules and reporting.</p>
+            <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20a%20Cash%20Loan%20system" class="live" target="_blank" rel="noopener">Request a demo →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="container">
+      <span class="section-label">Why Aloe Tech</span>
+      <h2 class="section-title">Built different</h2>
+      <p class="section-desc">
+        We focus on practical systems that solve real problems — not generic templates.
+      </p>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <h4>🎯 Spec-driven</h4>
+          <p>We build to your exact requirements. Every feature maps to how your business actually works.</p>
         </div>
-        <div class="service">
-          <h3>Website Development</h3>
-          <p>Are you ready to take your business to the next level? A website can be a powerful tool to attract and engage customers, showcase your products and services, and increase your brand awareness.</p>
-          <p>At our company, we design and develop beautiful and functional websites tailored to your unique business needs.</p>
-          <p>With our expertise and cutting-edge technology, we can create a website that not only looks great but also works seamlessly across all devices and platforms. Plus, our websites are optimized for search engines, so you can reach more potential customers online. Don't let a poor website hold your business back - let us help you elevate your online presence today! Get started with our website design and development service from as little as <strong>R1499</strong>.</p>
+        <div class="why-item">
+          <h4>🇿🇦 Local context</h4>
+          <p>WhatsApp-first flows, SA payment methods, data sensitivity and language realities — we design for South Africa.</p>
         </div>
-        
-        <div class="example-website">
-          <h3>Example Websites</h3>
-          <p>The Aloe Tech website and examples below developed by our team:</p>
-          <p><a href="https://lipapi.github.io/vhushavhelo.me/">vhushavhelo.me/profile page</a></p>
-          <p><a href="https://lipapi.github.io/galactic-defenderr/">galactic-defenderr/game (not recomended on mobile yet)</a></p>
-          <p><a href="https://lipapi.github.io/Dropdown-menu/">Dropdown-menu/</a></p>
+        <div class="why-item">
+          <h4>🚀 Modern stack</h4>
+          <p>Clean, fast, mobile-first interfaces that feel current in 2026 — not outdated templates from 2018.</p>
         </div>
-      </section>
-      <section id="contact">
-        <h2>Contact Us</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScQToQDRrT8bDB0H7f7cSkdyH6aj3ZFUyJMXHTFkRuHbUmguA/viewform?embedded=true" width="640" height="965" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-      </section>
-      
-    </main>
-    <footer>
-      <p>&copy; 2023 Aloe Tech. All rights reserved.</p>
-      <p> Registration Number: K2019503198</p>
-       <a href='http://www.freevisitorcounters.com'>free counter</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=c8425d54295c3158e8c3e2aee8f9721347a08443'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1031107/t/9"></script>
-    </footer>
-  </body>
+        <div class="why-item">
+          <h4>💬 Direct support</h4>
+          <p>Talk to us on WhatsApp. Clear communication, quick responses, and hands-on support after launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready to build something that works?</h2>
+        <p>Tell us what you need — a website, a custom app, a tracker or a full placement system. We’ll reply on WhatsApp with next steps.</p>
+        <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27d%20like%20to%20start%20a%20project" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          Message us on WhatsApp · 079 456 0147
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <span class="section-label">Get in touch</span>
+      <h2 class="section-title">Let’s talk</h2>
+      <p class="section-desc">
+        Prefer WhatsApp for the fastest response. All service orders and quotes go through WhatsApp.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="icon">💬</div>
+            <div>
+              <h4>WhatsApp (preferred)</h4>
+              <a href="https://wa.me/27794560147" target="_blank" rel="noopener">079 456 0147</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">🏢</div>
+            <div>
+              <h4>Registration</h4>
+              <p>K2019503198</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">🛠️</div>
+            <div>
+              <h4>Also available</h4>
+              <p>Laptop screen repairs from R799 · Company registration from R349 · Business plans from R499</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="whatsapp-card">
+          <div class="wa-icon">💬</div>
+          <h3>Order any service</h3>
+          <p>Click below to open WhatsApp with a pre-filled message. Tell us what you need and we’ll take it from there.</p>
+          <span class="phone">079 456 0147</span>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%20want%20to%20order%20a%20service" class="btn btn-whatsapp" target="_blank" rel="noopener" style="width:100%;">
+            Open WhatsApp Chat
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="logo">Aloe <span>Tech</span></a>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#systems">Systems</a>
+          <a href="#contact">Contact</a>
+          <a href="https://wa.me/27794560147" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aloe Tech. All rights reserved. · Registration Number: K2019503198</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav style on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    const toggle = document.getElementById('menuToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
+  </script>
+</body>
 </html>
