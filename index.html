@@ -307,11 +307,8 @@
 
     .hero-visual .glass-card {
       transform: rotate(2deg);
-      transition: transform 0.4s ease;
-    }
-
-    .hero-visual:hover .glass-card {
-      transform: rotate(0deg);
+      transition: transform 0.15s ease-out;
+      will-change: transform;
     }
 
     .card-header {
@@ -843,10 +840,10 @@
       <div class="services-grid">
         <article class="service-card">
           <div class="service-icon">🌐</div>
-          <h3>Website Design &amp; Development</h3>
-          <p>Modern, fast, mobile-first websites that convert visitors into customers. SEO-ready, clean design, easy to update.</p>
-          <div class="price">From R1 499</div>
-          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20Website%20Development" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+          <h3>Website &amp; Online Store Setup</h3>
+          <p>Business websites, Shopify stores, WooCommerce stores, landing pages and portfolio sites. Mobile-friendly, Google-ready and delivered fast.</p>
+          <div class="price">Basic R2 500 – R8 000 · Small business R5 000 – R15 000 · Online store R8 000 – R30 000+ · Maintenance R300 – R2 000/mo</div>
+          <a href="https://wa.me/27794560147?text=Hi%20Aloe%20Tech%2C%20I%27m%20interested%20in%20Website%20%26%20Online%20Store%20Setup" class="btn btn-primary" target="_blank" rel="noopener">Order via WhatsApp</a>
         </article>
 
         <article class="service-card">
@@ -1052,9 +1049,30 @@
   <script>
     // Sticky nav style on scroll
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    });
+    const glassCard = document.querySelector('.hero-visual .glass-card');
+    const hero = document.querySelector('.hero');
+
+    function updateHeroCard() {
+      const scrollY = window.scrollY;
+      nav.classList.toggle('scrolled', scrollY > 40);
+
+      if (glassCard && hero) {
+        // Progress through the hero section (0 at top → 1 when scrolled past hero)
+        const heroHeight = hero.offsetHeight;
+        const progress = Math.min(Math.max(scrollY / (heroHeight * 0.7), 0), 1);
+
+        // Start tilted (2deg), straighten + lift slightly as user scrolls
+        const rotate = 2 - (progress * 4);          // 2deg → -2deg
+        const translateY = progress * -28;          // moves up a bit
+        const scale = 1 - (progress * 0.04);        // subtle shrink
+
+        glassCard.style.transform = `rotate(${rotate}deg) translateY(${translateY}px) scale(${scale})`;
+      }
+    }
+
+    window.addEventListener('scroll', updateHeroCard, { passive: true });
+    window.addEventListener('resize', updateHeroCard);
+    updateHeroCard(); // run once on load
 
     // Mobile menu
     const toggle = document.getElementById('menuToggle');
